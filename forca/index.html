@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <section class="parent">
+        <h1>DICA: Fruta</h1>
+        <span class="text">Palavra</span>
+        <div id="palavra" class="parentPalavra">
+        </div>
+        <div class="tentativa">
+            <span class="text">Tentativa</span>
+            <input type="text" class="inputTentativa" maxlength="1" id="tentativaForm" autofocus>
+            <button class="btn" id="adivinharBtn" onclick="advinhar()">Advinhar</button>
+        </div>
+        <p id="tentativa" style="font-size: 3rem;"></p>
+        <div>
+            <pre id="forca" style="font-size: 2.5rem; display: flex; align-items: center; margin-left: 3rem; gap: 3rem;"></pre>
+        </div>
+    </section>
+</body>
+
+<script src="script.js"></script>
+
+</html>
