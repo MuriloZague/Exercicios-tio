@@ -37,9 +37,7 @@ tipoJogo.addEventListener("change", (e) => {
 
 const marcarQuadrado = (id) => {
     let box = document.getElementById(id)
-    if (box.classList.contains('selected-user') || box.classList.contains('selected-bot')){
-        return;
-    }
+
     if (plays % 2 == 0) {
         if (!box.classList.contains('selected-user' && 'selected-user2')) {
             plays = plays + 1
@@ -52,13 +50,11 @@ const marcarQuadrado = (id) => {
                 document.querySelectorAll('.box').forEach(botao => {
                     botao.disabled = true;
                 });
-                return;
+            return;
             }
         }
-        return;
-
+    return;
     } else {
-
         if (!box.classList.contains('selected-user2' && 'selected-user')) {
             plays = plays + 1
             box.classList.add('selected-user2')
@@ -70,13 +66,12 @@ const marcarQuadrado = (id) => {
                 document.querySelectorAll('.box').forEach(botao => {
                     botao.disabled = true;
                 });
-                return;
+            return;
             }
         }
-        return;
+    return;
     }
 }
-
 
 const verificarVitoria = (array) => {
     return winConditions.some(condition => {

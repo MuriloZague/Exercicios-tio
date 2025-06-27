@@ -61,7 +61,6 @@ formBuilder.addEventListener("click", (e) => {
   if (alvo.classList.contains("salvar-questao")) {
 
     if (salvarQuestao(id, bloco)) {
-
       bloco.querySelectorAll("input, button").forEach((el) => (el.disabled = true));
       bloco.style.opacity = 0.6;
       alvo.textContent = "Salvo!";
@@ -80,7 +79,6 @@ function salvarQuestao(id, opcao) {
   }
   const opcoes = [];
   let resposta = "";
-
   opcaoDivs.forEach((div, i) => {
 
     const texto = div.querySelector('input[type="text"]').value.trim();
@@ -146,7 +144,6 @@ function renderQuiz() {
       input.type = "radio";
       input.name = `questao-${i}`;
       input.value = letra;
-
       input.addEventListener("change", () => (respostasUsuario[i] = letra));
       label.appendChild(input);
       label.append(` ${texto}`);
