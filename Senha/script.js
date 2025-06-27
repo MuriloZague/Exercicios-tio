@@ -1,38 +1,38 @@
-var senha = document.getElementById('senha');
-var confirmaSenha = document.getElementById('confirmaSenha');
-var barraForca = document.getElementById('strengthBar');
-var textoForca = document.getElementById('strengthText');
-var feedback = document.getElementById('feedback');
-var botaoValidar = document.getElementById('btnValidar');
+let senha = document.getElementById('senha');
+let confirmaSenha = document.getElementById('confirmaSenha');
+let barraForca = document.getElementById('strengthBar');
+let textoForca = document.getElementById('strengthText');
+let feedback = document.getElementById('feedback');
+let botaoValidar = document.getElementById('btnValidar');
 
-var itemMinuscula = document.getElementById('minuscula');
-var itemMaiuscula = document.getElementById('maiuscula');
-var itemNumero = document.getElementById('numero');
-var itemEspecial = document.getElementById('especial');
-var itemTamanho = document.getElementById('tamanho');
-var itemConfirmacao = document.getElementById('confirmacao');
+let itemMinuscula = document.getElementById('minuscula');
+let itemMaiuscula = document.getElementById('maiuscula');
+let itemNumero = document.getElementById('numero');
+let itemEspecial = document.getElementById('especial');
+let itemTamanho = document.getElementById('tamanho');
+let itemConfirmacao = document.getElementById('confirmacao');
 
 
 function temMinuscula(texto) {
-    var regex = /[a-z]/;
+    let regex = /[a-z]/;
     return regex.test(texto);
 }
 
 
 function temMaiuscula(texto) {
-    var regex = /[A-Z]/;
+    let regex = /[A-Z]/;
     return regex.test(texto);
 }
 
 
 function temNumero(texto) {
-    var regex = /[0-9]/;
+    let regex = /[0-9]/;
     return regex.test(texto);
 }
 
 
 function temEspecial(texto) {
-    var regex = /[#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?~`]/;
+    let regex = /[#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?~`]/;
     return regex.test(texto);
 }
 
@@ -43,7 +43,7 @@ function temTamanhoMinimo(texto) {
 
 
 function atualizarLista() {
-    var senhaDigitada = senha.value;
+    let senhaDigitada = senha.value;
     
     
     if (temMinuscula(senhaDigitada)) {
@@ -79,16 +79,25 @@ function atualizarLista() {
 
 
 function calcularForca() {
-    var senhaDigitada = senha.value;
-    var pontos = 0;
+    let senhaDigitada = senha.value;
+    let pontos = 0;
     
     
-    if (temMinuscula(senhaDigitada)) pontos++;
-    if (temMaiuscula(senhaDigitada)) pontos++;
-    if (temNumero(senhaDigitada)) pontos++;
-    if (temEspecial(senhaDigitada)) pontos++;
-    if (temTamanhoMinimo(senhaDigitada)) pontos++;
-    
+    if (temMinuscula(senhaDigitada)){
+         pontos++;
+    }
+    if (temMaiuscula(senhaDigitada)) {
+        pontos++;
+    }
+    if (temNumero(senhaDigitada)) {
+        pontos++;
+    }
+    if (temEspecial(senhaDigitada)) {
+        pontos++;
+    }
+    if (temTamanhoMinimo(senhaDigitada)) {
+        pontos++;
+    }
     
     if (senhaDigitada.length == 0) {
         barraForca.style.width = '0%';
@@ -111,8 +120,8 @@ function calcularForca() {
 
 
 function verificarConfirmacao() {
-    var senha1 = senha.value;
-    var senha2 = confirmaSenha.value;
+    let senha1 = senha.value;
+    let senha2 = confirmaSenha.value;
     
     if (senha2.length > 0) {
         if (senha1 === senha2) {
@@ -143,8 +152,8 @@ confirmaSenha.addEventListener('input', function() {
 
 
 botaoValidar.addEventListener('click', function() {
-    var senhaDigitada = senha.value;
-    var confirmaDigitada = confirmaSenha.value;
+    let senhaDigitada = senha.value;
+    let confirmaDigitada = confirmaSenha.value;
     
     
     if (senhaDigitada === '') {
@@ -154,14 +163,14 @@ botaoValidar.addEventListener('click', function() {
     }
     
     
-    var temTodosRequisitos = temMinuscula(senhaDigitada) && 
+    let temTodosRequisitos = temMinuscula(senhaDigitada) && 
                             temMaiuscula(senhaDigitada) && 
                             temNumero(senhaDigitada) && 
                             temEspecial(senhaDigitada) && 
                             temTamanhoMinimo(senhaDigitada);
     
     
-    var senhasIguais = senhaDigitada === confirmaDigitada && confirmaDigitada !== '';
+    let senhasIguais = senhaDigitada === confirmaDigitada && confirmaDigitada !== '';
     
     
     if (temTodosRequisitos && senhasIguais) {
