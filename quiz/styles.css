@@ -1,0 +1,56 @@
+body {
+    font-family: Arial, sans-serif;
+    font-size: 1.2rem;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.questao {
+    margin-bottom: 20px;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.opcoes {
+    margin: 10px 0;
+}
+
+.opcao {
+    margin: 5px 0;
+    margin-bottom: 10px;
+}
+
+.opcao > label {
+    cursor: pointer;
+}
+
+button {
+    padding: 1rem 5rem;
+    background-color: #326ce5;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#resultado {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    padding: 3rem;
+    border-radius: 5px;
+    font-weight: bold;
+    text-align: center;
+    font-size: 1.5rem;
+}
+
+.acerto {
+    background-color: #d4edda;
+    color: green;
+}
+
+.erro {
+    background-color: #f8d7da;
+    color: red;
+}

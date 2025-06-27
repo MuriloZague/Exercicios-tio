@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verificador de Senha</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Verificador de Senha</h1>
+        
+        <div class="form-group">
+            <label for="senha">Digite sua senha:</label>
+            <input type="password" id="senha" placeholder="Digite sua senha">
+            
+            <div class="strength-indicator">
+                <div class="strength-bar" id="strengthBar"></div>
+            </div>
+            <span class="strength-text" id="strengthText">Força da senha</span>
+        </div>
+
+        <div class="form-group">
+            <label for="confirmaSenha">Confirme sua senha:</label>
+            <input type="password" id="confirmaSenha" placeholder="Confirme sua senha">
+        </div>
+
+        <div class="requirements">
+            <h3>Requisitos da senha:</h3>
+            <ul>
+                <li id="minuscula">Pelo menos 1 letra minúscula</li>
+                <li id="maiuscula">Pelo menos 1 letra maiúscula</li>
+                <li id="numero">Pelo menos 1 número</li>
+                <li id="especial">Pelo menos 1 caractere especial (exceto ! e @)</li>
+                <li id="tamanho">No mínimo 6 caracteres</li>
+                <li id="confirmacao">Senhas devem ser iguais</li>
+            </ul>
+        </div>
+
+        <div class="feedback" id="feedback"></div>
+        
+        <button type="button" id="btnValidar">Validar Senha</button>
+    </div>
+</body>
+<script src="script.js"></script>
+</html>
