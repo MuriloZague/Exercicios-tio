@@ -66,6 +66,7 @@ let qntPalavras = palavraUpp.split("");
 divPalavra.innerHTML = "";
 
 const renderizarPalavra = () => {
+    
     for (let i = 0; i < qntPalavras.length; i++) {
         const letra = document.createElement("input");
         letra.setAttribute("maxlength", "1");
@@ -79,6 +80,7 @@ const renderizarPalavra = () => {
 renderizarPalavra()
 
 const perdeuOJogo = () => {
+
     const tentativaForm = document.getElementById("tentativaForm")
     forca.innerHTML = `${forcaAscii[6]}<span>VOCÊ PERDEU!<br>A PALAVRA ERA: ${palavraUpp} <button style="font-size: 2rem; padding: 1rem"><a href="index.html" style="text-decoration: none; color: black">RECOMEÇAR</a>?</button></span>`
     adivinharBtn.setAttribute("disabled", "disabled");
@@ -86,6 +88,7 @@ const perdeuOJogo = () => {
 }
 
 const ganhouOJogo = () => {
+
     const tentativaForm = document.getElementById("tentativaForm")
     forca.innerHTML = `<span>VOCÊ GANHOU! <button style="font-size: 2rem; padding: 1rem"><a href="index.html" style="text-decoration: none; color: black">RECOMEÇAR</a>?</button></span>`
     adivinharBtn.setAttribute("disabled", "disabled");
@@ -93,6 +96,7 @@ const ganhouOJogo = () => {
 }
 
 const advinhar = () => {
+
     const tentativaForm = document.getElementById("tentativaForm").value;
     if (tentativaForm.length > 0) {
         let acertou = false;
