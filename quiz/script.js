@@ -1,7 +1,7 @@
-const formBuilder = document.getElementById("form")
+const formPrinc = document.getElementById("form")
 const botaoAdd = document.getElementById("btnAdd")
 const botaoGerar = document.getElementById("btnGerar")
-const quizSection = document.getElementById("quiz")
+const quizSecao = document.getElementById("quiz")
 const divQuiz = document.getElementById("questoes")
 const btnEnviar = document.getElementById("btnEnviar")
 const divResultado = document.getElementById("resultado")
@@ -22,7 +22,7 @@ function adicionarFormulario() {
   <button class="salvar-questao">Salvar questão</button>
   <hr />`
 
-  formBuilder.appendChild(formDiv)
+  formPrinc.appendChild(formDiv)
   idQuestao++
 }
 
@@ -36,7 +36,7 @@ function criaOpcaoHTML(questaoId, numQuestao, letra) {
     </div>
   `}
 
-formBuilder.addEventListener("click", (e) => {
+formPrinc.addEventListener("click", (e) => {
 
   const alvo = e.target;
   const bloco = alvo.closest(".bloco-questao");
@@ -117,7 +117,7 @@ botaoGerar.addEventListener("click", () => {
     return;
   }
   document.getElementById("builder").style.display = "none";
-  quizSection.style.display = "block";
+  quizSecao.style.display = "block";
 
   renderQuiz();
 });
