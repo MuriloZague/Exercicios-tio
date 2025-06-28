@@ -1,7 +1,7 @@
 const tipoJogo = document.getElementById('select')
 
 let tabuleiro = ['', '', '', '', '', '', '', '', ''];
-let jogadorAtual = 'X';
+let jogadorUser = 'X';
 
 const combinacoesVitoria = [[0, 1, 2], [3, 4, 5], [6, 7, 8], [0, 3, 6], [1, 4, 7], [2, 5, 8], [0, 4, 8], [2, 4, 6]];
 
@@ -13,13 +13,13 @@ tipoJogo.addEventListener("change", (e) => {
     }
 })
 
-function marcarQuadrado(id) {
+const marcarQuadrado = (id) => {
 
     if (tabuleiro[id-1] !== ''){
         return;
     } 
-    tabuleiro[id-1] = 'X';
-    document.getElementById(id).textContent = 'X';
+    tabuleiro[id-1] = jogadorUser;
+    document.getElementById(id).textContent = jogadorUser;
 
     if (verificarVencedor('X')) {
         alert('Você venceu!')
@@ -39,7 +39,7 @@ function marcarQuadrado(id) {
     jogadaBot()
 }
 
-function encontrarMelhorJogada() {
+const encontrarMelhorJogada = () => {
 
     let melhorPontuacao = -Infinity
     let melhorJogada
@@ -57,7 +57,7 @@ function encontrarMelhorJogada() {
     return melhorJogada
 }
 
-function jogadaBot() {
+const jogadaBot = () => {
 
     const melhorJogada = encontrarMelhorJogada();
     tabuleiro[melhorJogada] = 'O';
@@ -80,7 +80,7 @@ function jogadaBot() {
     }
 }
 
-function minimax(tabuleiroAtual, profundidade, ehMaximizador) {
+const minimax = (tabuleiroAtual, profundidade, maximizador) => {
 
     if (verificarVencedor('O')){
         return 10 - profundidade;
@@ -91,7 +91,7 @@ function minimax(tabuleiroAtual, profundidade, ehMaximizador) {
     if (verificarEmpate()){
         return 0;
     }
-    if (ehMaximizador) {
+    if (maximizador) {
         let melhorPontuacao = -Infinity;
         for (let i = 0; i < 9; i++) {
             if (tabuleiroAtual[i] === '') {
@@ -116,7 +116,7 @@ function minimax(tabuleiroAtual, profundidade, ehMaximizador) {
     }
 }
 
-function verificarVencedor(jogador) {
+const verificarVencedor = (jogador) => {
 
     return combinacoesVitoria.some(combinacao => {
         return combinacao.every(index => {
@@ -125,6 +125,6 @@ function verificarVencedor(jogador) {
     });
 }
 
-function verificarEmpate() {
+const verificarEmpate = () => {
     return tabuleiro.every(casa => casa !== '');
 }

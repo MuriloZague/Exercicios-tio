@@ -72,7 +72,6 @@ const marcarQuadrado = (id) => {
     return;
     }
 }
-
 const verificarVitoria = (array) => {
     return winConditions.some(condition => {
         return condition.every(box => array.includes(box.id));

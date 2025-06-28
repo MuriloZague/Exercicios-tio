@@ -15,8 +15,7 @@ function adicionarFormulario() {
   formDiv.className = "bloco-questao"
   formDiv.dataset.id = idQuestao
 
-  formDiv.innerHTML = 
-  `<p><strong>${idQuestao} - Título da questão</strong></p>
+  formDiv.innerHTML = `<p><strong>${idQuestao} - Título da questão</strong></p>
   <input type="text" id="tituloId${idQuestao}" style="width:90%" />
   <div id="questoesId${idQuestao}">${criaOpcaoHTML(idQuestao, 1, "a")}${criaOpcaoHTML(idQuestao, 2, "b")}</div>
   <button class="add-opcao">+ alternativa</button>
@@ -28,6 +27,7 @@ function adicionarFormulario() {
 }
 
 function criaOpcaoHTML(questaoId, numQuestao, letra) {
+
   return `
     <div class="opcao">
       <input type="radio" name="resposta${questaoId}" />
@@ -62,7 +62,6 @@ formBuilder.addEventListener("click", (e) => {
 
     if (salvarQuestao(id, bloco)) {
       bloco.querySelectorAll("input, button").forEach((el) => (el.disabled = true));
-      bloco.style.opacity = 0.6;
       alvo.textContent = "Salvo!";
     }
   }
