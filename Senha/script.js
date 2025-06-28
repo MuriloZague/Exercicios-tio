@@ -4,7 +4,6 @@ let barraForca = document.getElementById('strengthBar');
 let textoForca = document.getElementById('strengthText');
 let feedback = document.getElementById('feedback');
 let botaoValidar = document.getElementById('btnValidar');
-
 let itemMinuscula = document.getElementById('minuscula');
 let itemMaiuscula = document.getElementById('maiuscula');
 let itemNumero = document.getElementById('numero');
