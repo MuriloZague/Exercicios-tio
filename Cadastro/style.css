@@ -49,7 +49,6 @@ input:focus, select:focus {
     border-color: #007bff;
 }
 
-/* Classes pra mostrar se o campo tá certo ou errado */
 .campo-valido {
     border-color: #28a745 !important;
     background-color: #f8fff8;

@@ -191,14 +191,11 @@ function validarCamposEspeciais() {
   }
 
 
-  const checkboxes = document.querySelectorAll(
-    'input[name="interesse"]:checked'
-  );
+  const checkboxes = document.querySelectorAll('input[name="interesse"]:checked');
   const spanErroInteresse = document.getElementById("erro-interesse");
 
   if (checkboxes.length === 0) {
-    spanErroInteresse.textContent =
-      "Selecione pelo menos uma área de interesse";
+    spanErroInteresse.textContent = "Selecione pelo menos uma área de interesse";
     valido = false;
   } else {
     spanErroInteresse.textContent = "";
@@ -210,15 +207,7 @@ function validarCamposEspeciais() {
 
 document.addEventListener("DOMContentLoaded", function () {
 
-  const campos = [
-    "nome",
-    "endereco",
-    "email",
-    "celular",
-    "idade",
-    "cpf",
-    "cep",
-  ];
+  const campos = ["nome", "endereco", "email", "celular", "idade", "cpf", "cep",];
 
   document.getElementById("celular").addEventListener("input", function () {
     this.value = aplicarMascara("celular", this.value);
@@ -234,54 +223,44 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
   campos.forEach(function (campo) {
+
     document.getElementById(campo).addEventListener("blur", function () {
       validarCampo(campo);
     });
-
-
     document.getElementById(campo).addEventListener("input", function () {
       limparValidacao(campo);
     });
   });
 
-
-  document
-    .getElementById("sexo")
-    .addEventListener("change", validarCamposEspeciais);
-  document
-    .getElementById("redeSocial")
-    .addEventListener("change", validarCamposEspeciais);
-
+  document.getElementById("sexo").addEventListener("change", validarCamposEspeciais);
+  document.getElementById("redeSocial").addEventListener("change", validarCamposEspeciais);
 
   const checkboxes = document.querySelectorAll('input[name="interesse"]');
   checkboxes.forEach(function (checkbox) {
+
     checkbox.addEventListener("change", validarCamposEspeciais);
   });
 
 
-  document
-    .getElementById("formulario")
-    .addEventListener("submit", function (e) {
-      e.preventDefault(); 
+  document.getElementById("formulario").addEventListener("submit", function (e) {
 
-      let formularioValido = true;
-
-      campos.forEach(function (campo) {
-        if (!validarCampo(campo)) {
-          formularioValido = false;
-        }
-      });
-
-      if (!validarCamposEspeciais()) {
+    e.preventDefault(); 
+    let formularioValido = true;
+    campos.forEach(function (campo) {
+      if (!validarCampo(campo)) {
         formularioValido = false;
       }
-
-      if (formularioValido) {
-        alert("Formulário enviado com sucesso! 🎉");
-        console.log("Dados do formulário válidos!");
-
-      } else {
-        alert("Existem erros no formulário. Verifique os campos em vermelho.");
-      }
     });
+
+    if (!validarCamposEspeciais()) {
+      formularioValido = false;
+    }
+
+    if (formularioValido) {
+      alert("Formulário enviado com sucesso! 🎉");
+      console.log("dados ok");
+    } else {
+      alert("Existem erros no formulário. Verifique os campos em vermelho.");
+    }
+  });
 });
